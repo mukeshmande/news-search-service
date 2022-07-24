@@ -1,4 +1,4 @@
-package com.news.search.beans;
+package com.news.search.beans.guardian;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;

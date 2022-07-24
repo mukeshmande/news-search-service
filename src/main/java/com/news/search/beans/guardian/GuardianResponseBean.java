@@ -1,4 +1,4 @@
-package com.news.search.beans;
+package com.news.search.beans.guardian;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,16 +7,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
+@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
-@NoArgsConstructor
-public class GuardianResultBean implements Serializable {
+public class GuardianResponseBean implements Serializable {
 
-    @JsonProperty("webTitle")
-    private String webTitle;
+    @JsonProperty("pages")
+    private int pages;
+    @JsonProperty("results")
+    private List<GuardianResultBean> results;
 
-    @JsonProperty("webUrl")
-    private String webUrl;
+
+
 }
