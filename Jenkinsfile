@@ -9,7 +9,7 @@ pipeline {
              withCredentials([string(credentialsId: 'GUARDIAN_API_KEY', variable: 'guardian_api_key'),
                 string(credentialsId: 'NYTIMES_API_KEY', variable: 'nytimes_api_key'),
                 string(credentialsId: 'sonarqube_token', variable: 'sonarqube_token')]) {
-                bat "mvn clean install sonar:sonar -DskipTests -DGUARDIAN_API_KEY=${guardian_api_key} -DNYTIMES_API_KEY=${nytimes_api_key} -Dsonar.login=${sonarqube_token}"
+                bat "mvn clean install sonar:sonar -Dsonar.projectKey=news-search-service -Dsonar.host.url=http://localhost:9000 -Dsonar.login=${sonarqube_token} -DskipTests -DGUARDIAN_API_KEY=${guardian_api_key} -DNYTIMES_API_KEY=${nytimes_api_key}"
           }
       }
     }
