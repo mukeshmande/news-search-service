@@ -15,7 +15,6 @@ pipeline {
     stage('Docker Build') {
       steps {
             script {
-//         bat 'docker build -t get-started/news-search-service:dev .'
                 dockerImage = docker.build("mukeshmande/news-search-service:${env.dockerBuildtag}")
             }
       }
@@ -23,10 +22,6 @@ pipeline {
     stage('Docker Push') {
           steps {
             script{
-//             withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
-//               bat "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-//               bat 'docker push get-started/news-search-service:dev'
-//             }
               withDockerRegistry([ credentialsId: "docker-hub-credentials", url: "https://registry.hub.docker.com" ]){
                 dockerImage.push();
               }
