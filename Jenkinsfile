@@ -1,7 +1,7 @@
 #!groovy
 
+def dockerImage
 pipeline {
-  def dockerImage
   agent any
   stages {
     stage('Maven Install') {
