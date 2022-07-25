@@ -10,13 +10,13 @@ pipeline {
 //         }
 //       }
       steps {
-        sh 'mvn clean install -DskipTests'
+        bat 'mvn clean install -DskipTests'
       }
     }
     stage('Docker Build') {
 //       agent any
       steps {
-        sh 'docker build -t get-started/news-search-service:dev .'
+        bat 'docker build -t get-started/news-search-service:dev .'
       }
     }
   }
