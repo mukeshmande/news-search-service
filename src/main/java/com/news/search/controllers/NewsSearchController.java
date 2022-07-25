@@ -1,14 +1,15 @@
 package com.news.search.controllers;
 
-import com.news.search.beans.NewsSearchResponseBean;
+import com.news.search.common.Constants;
 import com.news.search.exceptions.NewsSearchException;
 import com.news.search.services.NewsSearchService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.PostConstruct;
 
 @RestController
 @CrossOrigin(value = "*")
@@ -44,5 +45,10 @@ public class NewsSearchController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+
+    @PostConstruct
+    public void intializeApiCredentials() throws NewsSearchException {
+        Constants.setCredentials();
+    }
 
 }
