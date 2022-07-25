@@ -1,20 +1,20 @@
 #!groovy
 
 pipeline {
-  agent none
+  agent any
   stages {
     stage('Maven Install') {
-      agent {
-        docker {
-          image 'maven:3.8.3'
-        }
-      }
+//       agent {
+//         docker {
+//           image 'maven:3.8.3'
+//         }
+//       }
       steps {
         bat 'mvn clean install -DskipTests'
       }
     }
     stage('Docker Build') {
-      agent any
+//       agent any
       steps {
         bat 'docker build -t get-started/news-search-service:dev .'
       }
