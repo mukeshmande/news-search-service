@@ -1,4 +1,4 @@
-#News Search Microservice
+#News Search Microservice   
 This repository contains Spring boot microservice with CI/CD pipeline for deployement.
 
 ## Overview
@@ -12,14 +12,14 @@ with the tag as passed as paratmeter to build.
 The Microservice apis are available using swaggger ui, postman & any web browser.   
 The microservice has sonarqube scan included in maven build stage of jenkins pipeline.
 
-### Tools you will need
+## Tools you will need
  * Maven 3.8+ is your build tool
  * Your favorite IDE but we will recommend IntelliJ. We use IntelliJ.
  * JDK 11+
  
 
 
-#### Following are the design pattern used in developing this microservice.
+### Following are the design pattern used in developing this microservice.
  * Factory pattern
  * Builder Pattern
  * Template Pattern
@@ -50,9 +50,9 @@ The microservice has sonarqube scan included in maven build stage of jenkins pip
 ![Alt text](src/main/resources/NewsSearchController_getNewsSearch.svg?raw=true "Sequence Diagram")
 
 
-## Next
+## Areas of Improvement
 There are certain areas where improvement is required to make it production ready.
- * Requires deployement environment like k8s to run this service.
+ * Require deployement environment like k8s to run this service.
  * ControllerAdvice can be added to more effectively handle exceptions & error codes.
  * Require UI to show the search results & to have offline mode.
  * City is not provided by any of the external apis(Guardian and New York Times), so city will be null in resonse.
