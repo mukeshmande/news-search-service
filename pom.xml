@@ -20,6 +20,7 @@
 		<java.version>11</java.version>
 		<GUARDIAN_API_KEY>${GUARDIAN_API_KEY}</GUARDIAN_API_KEY>
 		<NYTIMES_API_KEY>${NYTIMES_API_KEY}</NYTIMES_API_KEY>
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -62,6 +63,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

@@ -19,8 +19,11 @@ public class Constants {
     private Constants() {
     }
 
+    // provide api keys to run locally
     public static String GUARDIAN_API_KEY;
     public static String NYTIMES_API_KEY;
+
+
     public static final List<String> NEWS_CHANNELS = Arrays.asList(new String[]{GUARDIAN, NYTIMES});
 
     public static void setCredentials() throws NewsSearchException {
@@ -32,7 +35,5 @@ public class Constants {
         } catch (IOException e) {
             throw new NewsSearchException(e.getMessage());
         }
-
-
     }
 }
