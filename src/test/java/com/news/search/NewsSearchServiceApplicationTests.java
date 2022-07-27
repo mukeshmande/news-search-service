@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class NewsSearchServiceApplicationTests {
 
 	@Autowired
-	NewsSearchController newsSearchController;
+	private NewsSearchController newsSearchController;
 
 
 	@Test

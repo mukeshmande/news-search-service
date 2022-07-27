@@ -41,18 +41,16 @@ public class NewsSearchServiceImpl implements NewsSearchService {
                 totalPages += responseBean.getTotalPages();
                 result.setSearchKeyword(query);
                 result.setCurrentPage(pageNumber);
-                result.setNextPage(result.getNextPage() < responseBean.getTotalPages() ? result.getCurrentPage() + 1 : result.getCurrentPage());
-                result.setPreviousPage(result.getCurrentPage() > 1 ? result.getCurrentPage() - 1 : 0);
-                if (result.getNewsDetailsResponseBeanList() != null)
+
                     result.getNewsDetailsResponseBeanList().addAll(responseBean.getNewsDetailsResponseBeanList());
-                else
-                    result.setNewsDetailsResponseBeanList(responseBean.getNewsDetailsResponseBeanList());
             }
+            result.setNextPage(result.getCurrentPage() < totalPages ? result.getCurrentPage() + 1 : result.getCurrentPage());
+            result.setPreviousPage(result.getCurrentPage() - 1);
             long end = System.currentTimeMillis();
             result.setTimeTaken(end - start);
 
         try {
-            if(result.getNewsDetailsResponseBeanList()!=null){
+            if(result.getNewsDetailsResponseBeanList().size()!=0){
                 if(result.getNewsDetailsResponseBeanList().size()>10){
                     result.setTotalPages(totalPages/2);
                     if(totalPages%2 > 0)  result.setTotalPages(result.getTotalPages()+1);

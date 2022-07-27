@@ -13,7 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class NYTimesBean implements Serializable {
-
+    private static final long serialVersionUID = 1L;
     @JsonProperty("response")
     private NYTimesResponseBean response;
 }

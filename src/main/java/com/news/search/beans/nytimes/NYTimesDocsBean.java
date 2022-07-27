@@ -12,6 +12,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NYTimesDocsBean implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String web_url;
     private NYTimesHeadlineBean headline;
 }

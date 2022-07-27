@@ -13,7 +13,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GuardianResultBean implements Serializable {
-
+    private static final long serialVersionUID = 1L;
     @JsonProperty("webTitle")
     private String webTitle;
 

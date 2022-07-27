@@ -13,6 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class NYTimesResponseBean implements Serializable {
+    private static final long serialVersionUID = 1L;
     private List<NYTimesDocsBean> docs;
     private NYTimesMetaBean meta;
 }

@@ -14,7 +14,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
 public class GuardianResponseBean implements Serializable {
-
+    private static final long serialVersionUID = 1L;
     @JsonProperty("pages")
     private int pages;
     @JsonProperty("results")
