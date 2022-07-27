@@ -20,10 +20,8 @@ public class Constants {
     }
 
     // provide api keys to run locally
-    public static String GUARDIAN_API_KEY;
-    public static String NYTIMES_API_KEY;
-
-
+    public static String GUARDIAN_API_KEY = "b231719c-f31e-4708-9ffe-a021c2aaecc0";
+    public static String NYTIMES_API_KEY = "Hl7gqlwxElw9U13Ia5e4nwW49TT2XygW";
     public static final List<String> NEWS_CHANNELS = Arrays.asList(new String[]{GUARDIAN, NYTIMES});
 
     public static void setCredentials() throws NewsSearchException {
@@ -35,5 +33,7 @@ public class Constants {
         } catch (IOException e) {
             throw new NewsSearchException(e.getMessage());
         }
+
+
     }
 }

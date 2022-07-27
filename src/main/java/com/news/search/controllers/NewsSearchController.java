@@ -51,9 +51,9 @@ public class NewsSearchController {
 
 
     // comment this method to run locally
-    @PostConstruct
-    public void intializeApiCredentials() throws NewsSearchException {
-        Constants.setCredentials();
-    }
+//    @PostConstruct
+//    public void intializeApiCredentials() throws NewsSearchException {
+//        Constants.setCredentials();
+//    }
 
 }
