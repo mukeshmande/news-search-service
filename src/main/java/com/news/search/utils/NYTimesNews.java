@@ -7,14 +7,20 @@ import com.news.search.beans.nytimes.NYTimesResponseBean;
 import com.news.search.common.Constants;
 import com.news.search.configs.RestTemplateConfig;
 import com.news.search.exceptions.NewsSearchException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NYTimesNews implements NewsProvider{
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(NYTimesNews.class);
+
     @Override
     public NewsSearchResponseBean getNews(String query, int page) throws NewsSearchException {
+        LOGGER.info("getting news from The New York Times : {} ", query);
+
         NewsSearchResponseBean newsSearchResponseBean = new NewsSearchResponseBean();
         List<NewsDetailsResponseBean> newsDetailsResponseBeanList = new ArrayList<>();
         NYTimesBean nyTimesBean;

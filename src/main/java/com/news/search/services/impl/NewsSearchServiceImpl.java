@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.news.search.beans.NewsSearchResponseBean;
 import com.news.search.common.Constants;
-import com.news.search.controllers.NewsSearchController;
 import com.news.search.exceptions.NewsSearchException;
 import com.news.search.services.NewsSearchService;
 import com.news.search.utils.NewsProvider;
@@ -20,7 +19,7 @@ public class NewsSearchServiceImpl implements NewsSearchService {
 
     @Override
     public String getNewsSearch(String query, int pageNumber) throws NewsSearchException {
-        LOGGER.info("getting search result for "+query +"from page ->"+pageNumber);
+        LOGGER.info("getting search result: {}", query);
         long start = System.currentTimeMillis();
         ObjectMapper objectMapper = new ObjectMapper();
         NewsSearchResponseBean result = new NewsSearchResponseBean();
@@ -35,7 +34,7 @@ public class NewsSearchServiceImpl implements NewsSearchService {
                 try {
                     responseBean = newsProvider.getNews(query, pageNumber);
                 } catch (NewsSearchException e) {
-                    LOGGER.error("Error in getNewsSearch while fetching news from "+ channel+" >>  " + e.getMessage());
+                    LOGGER.error("Error in getNewsSearch while fetching news: {}",  e.getMessage());
                     errorMsg.append(e.getMessage()+" ");
                     continue;
                 }
@@ -59,16 +58,15 @@ public class NewsSearchServiceImpl implements NewsSearchService {
                     if(totalPages%2 > 0)  result.setTotalPages(result.getTotalPages()+1);
                 }else
                     result.setTotalPages(totalPages);
+
                 return objectMapper.writeValueAsString(result);
             }
             else{
-                LOGGER.error("Error while getting result "+errorMsg.toString());
                 throw new NewsSearchException(errorMsg.toString());
             }
 
 
         } catch (JsonProcessingException e) {
-            LOGGER.error("Error in parsing result >>  " + e.getMessage());
             throw new NewsSearchException(e.getMessage());
         }
     }
